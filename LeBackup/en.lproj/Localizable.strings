@@ -1,0 +1,86 @@
+/* No comment provided by engineer. */
+"ABORT" = "Abort";
+
+/* No comment provided by engineer. */
+"AUTOMATICALLY_SLEEP_AFTER_BACKUP" = "Automatically sleep after completing a backup";
+
+/* Title, verb imperative */
+"BACK_UP_PARALLELS" = "Back up Parallels";
+
+/* No comment provided by engineer. */
+"BACKING_UP_PARALLELS" = "Backing up Parallels...";
+
+/* No comment provided by engineer. */
+"CANCEL" = "Cancel";
+
+/* No comment provided by engineer. */
+"CHOOSE_..." = "Choose...";
+
+/* No comment provided by engineer. */
+"COPYING_:" = "Copying: ";
+
+/* No comment provided by engineer. */
+"DESTINATION_:" = "Destination: ";
+
+/* No comment provided by engineer. */
+"DRY_RUN" = "Dry run";
+
+/* No comment provided by engineer. */
+"DRY_RUN_SKIPPING_RSYNC" = "Dry run; skipping rsync";
+
+/* No comment provided by engineer. */
+"PARALLELS_VMS_DETECTED" = "Parallels VMs detected";
+
+/* Main run button */
+"RUN_!" = "Run!";
+
+/* No comment provided by engineer. */
+"RUN_ANWAYS" = "Run anyways ";
+
+/* No comment provided by engineer. */
+"RUNNING_RSYNC" = "running Real rsync";
+
+/* No comment provided by engineer. */
+"RUNNING_RSYNC_N" = "running rsync -n";
+
+/* No comment provided by engineer. */
+"SCANNING_FILES" = "Scanning files...";
+
+/* No comment provided by engineer. */
+"SCANNING_PARALLELS_PROCESSES" = "Scanning Parallels processes...";
+
+/* Settings button label */
+"SETTINGS" = "Settings...";
+
+/* No comment provided by engineer. */
+"SHUT_THEM_DOWN_TRY_AGAIN" = "Shut them down and try again!";
+
+/* No comment provided by engineer. */
+"SLEEP_REQUESTED_SLEEPING" = "Sleep requested: putting mac to sleep...";
+
+/* Main UI checkbox label */
+"SLEEP_WHEN_DONE" = "Sleep when done";
+
+/* No comment provided by engineer. */
+"SOURCE_:" = "Source: ";
+
+/* No comment provided by engineer. */
+"SOURCE_DIRECTORY" = "Source directory";
+
+/* No comment provided by engineer. */
+"STATUS %lld %lld" = "Scanned %lld apps, found %lld parallels";
+
+/* No comment provided by engineer. */
+"TARGET_DIRECTORY" = "Target directory";
+
+/* No comment provided by engineer. */
+"TERMINATION_STATUS %d" = "Termination status: %d";
+
+/* No comment provided by engineer. */
+"TERMINATION_STATUS_WITH_TOTALS %d %@ %@" = "Termination status: %d  (total=%@, to-do=%@)";
+
+/* No comment provided by engineer. */
+"THE_FOLLOWING_VMS_ARE_RUNNING" = "The following VM(s) are running:";
+
+/* No comment provided by engineer. */
+"TRY_AGAIN" = "Try Again";

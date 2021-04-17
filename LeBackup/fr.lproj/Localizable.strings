@@ -1,0 +1,93 @@
+/* 
+  Localizable.strings
+  LeBackup
+
+  Created by Vincent Mallet on 4/15/21.
+  
+*/
+
+/* No comment provided by engineer. */
+"ABORT" = "Stop";
+
+/* No comment provided by engineer. */
+"AUTOMATICALLY_SLEEP_AFTER_BACKUP" = "Mettre le mac en veille automatiquement après une sauvegarde";
+
+"BACK_UP_PARALLELS" = "Sauvegarde Parallels";
+
+/* No comment provided by engineer. */
+"BACKING_UP_PARALLELS" = "Sauvegarde Parallels en cours...";
+
+/* No comment provided by engineer. */
+"CANCEL" = "Abandonne";
+
+/* No comment provided by engineer. */
+"CHOOSE_..." = "Choisir...";
+
+/* No comment provided by engineer. */
+"COPYING_:" = "Copie de :";
+
+/* No comment provided by engineer. */
+"DESTINATION_:" = "Destination : ";
+
+/* No comment provided by engineer. */
+"DRY_RUN" = "Essai à blanc";
+
+/* No comment provided by engineer. */
+"DRY_RUN_SKIPPING_RSYNC" = "On tourne à blanc : on ne fait pas la vraie sauvegarde";
+
+/* No comment provided by engineer. */
+"PARALLELS_VMS_DETECTED" = "VMs Parallels détectées";
+
+/* Main run button */
+"RUN_!" = "Sauvegarde !";
+
+/* No comment provided by engineer. */
+"RUN_ANWAYS" = "Fais-le quand même";
+
+/* No comment provided by engineer. */
+"RUNNING_RSYNC" = "Lancement du vrai rsync";
+
+/* No comment provided by engineer. */
+"RUNNING_RSYNC_N" = "Lancement de rsync -n (\"dry run\")";
+
+/* No comment provided by engineer. */
+"SCANNING_FILES" = "Analyse des fichiers...";
+
+/* No comment provided by engineer. */
+"SCANNING_PARALLELS_PROCESSES" = "Recherche des processus Parallels...";
+
+/* Settings button label */
+"SETTINGS" = "Réglages...";
+
+/* No comment provided by engineer. */
+"SHUT_THEM_DOWN_TRY_AGAIN" = "Fermez-les et réessayez !";
+
+/* No comment provided by engineer. */
+"SLEEP_REQUESTED_SLEEPING" = "Veille demandée : on va faire dormir le Mac...";
+
+/* Main UI checkbox label */
+"SLEEP_WHEN_DONE" = "Mettre en veille à la fin";
+
+/* No comment provided by engineer. */
+"SOURCE_:" = "Source : ";
+
+/* No comment provided by engineer. */
+"SOURCE_DIRECTORY" = "Répertoire source";
+
+/* No comment provided by engineer. */
+"STATUS %lld %lld" = "%lld processus scannés, %lld Parallels trouvé(s)";
+
+/* No comment provided by engineer. */
+"TARGET_DIRECTORY" = "Répertoire de destination";
+
+/* No comment provided by engineer. */
+"TERMINATION_STATUS %d" = "Code de sortie : %d";
+
+/* No comment provided by engineer. */
+"TERMINATION_STATUS_WITH_TOTALS %d %@ %@" = "Code de sortie : %d  (total=%@, à-faire=%@)";
+
+/* No comment provided by engineer. */
+"THE_FOLLOWING_VMS_ARE_RUNNING" = "Les machines virtuelles ci-dessous tournent toujours :";
+
+/* No comment provided by engineer. */
+"TRY_AGAIN" = "Réessaie";
