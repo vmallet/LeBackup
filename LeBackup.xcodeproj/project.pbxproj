@@ -19,6 +19,7 @@
 		614FA691262B81F400A68B04 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68A262B81F400A68B04 /* LogView.swift */; };
 		614FA692262B81F400A68B04 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68B262B81F400A68B04 /* Prefs.swift */; };
 		614FA69E262D473700A68B04 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 614FA69D262D473700A68B04 /* quack.mp3 */; };
+		614FA6A6262E240700A68B04 /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6A5262E240700A68B04 /* BartyCrouch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		614FA68A262B81F400A68B04 /* LogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		614FA68B262B81F400A68B04 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		614FA69D262D473700A68B04 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quack.mp3; sourceTree = "<group>"; };
+		614FA6A5262E240700A68B04 /* BartyCrouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		614FA668262AA56A00A68B04 /* LeBackup */ = {
 			isa = PBXGroup;
 			children = (
+				614FA6A5262E240700A68B04 /* BartyCrouch.swift */,
 				614FA69C262D46F400A68B04 /* Resources */,
 				614FA685262B81F300A68B04 /* LogStore.swift */,
 				614FA68A262B81F400A68B04 /* LogView.swift */,
@@ -114,6 +117,7 @@
 				614FA662262AA56A00A68B04 /* Sources */,
 				614FA663262AA56A00A68B04 /* Frameworks */,
 				614FA664262AA56A00A68B04 /* Resources */,
+				614FA6A0262E21AF00A68B04 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -171,6 +175,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		614FA6A0262E21AF00A68B04 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/*.swift",
+				"$(SRCROOT)/*.strings",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "BARTY=\"bartycrouch\"\nif which $BARTY > /dev/null; then\n    $BARTY update -x\n    $BARTY lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		614FA662262AA56A00A68B04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,6 +207,7 @@
 				614FA68C262B81F400A68B04 /* LogStore.swift in Sources */,
 				614FA68D262B81F400A68B04 /* Runner.swift in Sources */,
 				614FA66C262AA56A00A68B04 /* ContentView.swift in Sources */,
+				614FA6A6262E240700A68B04 /* BartyCrouch.swift in Sources */,
 				614FA68F262B81F400A68B04 /* Sleeper.swift in Sources */,
 				614FA691262B81F400A68B04 /* LogView.swift in Sources */,
 				614FA66A262AA56A00A68B04 /* LeBackupApp.swift in Sources */,

@@ -1,17 +1,10 @@
-/* 
-  Localizable.strings
-  LeBackup
-
-  Created by Vincent Mallet on 4/15/21.
-  
-*/
-
 /* No comment provided by engineer. */
 "ABORT" = "Stop";
 
 /* No comment provided by engineer. */
 "AUTOMATICALLY_SLEEP_AFTER_BACKUP" = "Mettre le mac en veille automatiquement après une sauvegarde";
 
+/* Title, verb imperative */
 "BACK_UP_PARALLELS" = "Sauvegarde Parallels";
 
 /* No comment provided by engineer. */
@@ -38,6 +31,7 @@
 /* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "VMs Parallels détectées";
 
+/* No comment provided by engineer. */
 "QUACK_!" = "Coin !";
 
 /* Main run button */
