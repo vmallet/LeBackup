@@ -29,6 +29,9 @@
 "DRY_RUN_SKIPPING_RSYNC" = "On tourne à blanc : on ne fait pas la vraie sauvegarde";
 
 /* No comment provided by engineer. */
+"MISSING_SYSTEM_EVENTS_PRIVILEGES" = "Droits manquants pour System Events";
+
+/* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "VMs Parallels détectées";
 
 /* No comment provided by engineer. */
@@ -72,6 +75,9 @@
 
 /* No comment provided by engineer. */
 "STATUS %lld %lld" = "%lld processus scannés, %lld Parallels trouvé(s)";
+
+/* No comment provided by engineer. */
+"SYSTEM_EVENTS_PRIVILEGES_TEXT" = "Il est nécessaire d'avoir les droits \"System Events\" pour pouvoir mettre le mac en veille, dans Réglages -> Sécurité et Confidentialité -> Automatisation";
 
 /* No comment provided by engineer. */
 "TARGET_DIRECTORY" = "Répertoire de destination";

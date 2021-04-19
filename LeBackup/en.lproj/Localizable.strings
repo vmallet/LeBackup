@@ -29,6 +29,9 @@
 "DRY_RUN_SKIPPING_RSYNC" = "Dry run; skipping rsync";
 
 /* No comment provided by engineer. */
+"MISSING_SYSTEM_EVENTS_PRIVILEGES" = "Missing System Events Privileges";
+
+/* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "Parallels VMs detected";
 
 /* No comment provided by engineer. */
@@ -72,6 +75,9 @@
 
 /* No comment provided by engineer. */
 "STATUS %lld %lld" = "Scanned %lld apps, found %lld parallels";
+
+/* No comment provided by engineer. */
+"SYSTEM_EVENTS_PRIVILEGES_TEXT" = "In order to put the mac to sleep, the \"System Events\" priviledge but be enabled for this app in Settings -> Security & Privacy -> Privacy -> Automation";
 
 /* No comment provided by engineer. */
 "TARGET_DIRECTORY" = "Target directory";

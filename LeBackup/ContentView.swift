@@ -11,7 +11,6 @@
 //TODO:   - auto detect and show some red, auto detect closure?
 //TODO: make log area selectable / copyable?
 //TODO: Alert "Are you sure" when closing window w/ running rsync
-//TODO: System Events: do an early test when option is selected
 
 import os
 import Cocoa
@@ -73,6 +72,9 @@ struct ContentView: View {
                 mainBody
             }
             .frame(minWidth: 600.0, minHeight: 250)
+        }
+        .onChange(of: autoSleep) { _ in
+            maybeCheckAppleEvents()
         }
     }
 
@@ -294,6 +296,28 @@ struct ContentView: View {
         }
     }
 
+    func showNeedPrivilegesAlert() {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("MISSING_SYSTEM_EVENTS_PRIVILEGES", comment: "")
+        alert.informativeText =
+            NSLocalizedString("SYSTEM_EVENTS_PRIVILEGES_TEXT", comment: "")
+
+        let ok = alert.addButton(withTitle: "OK")
+        ok.keyEquivalent = "\u{1b}" // Escape
+
+        alert.runModal()
+    }
+
+    func maybeCheckAppleEvents() {
+        guard autoSleep else { return }
+
+        logger.info("AutoSleep is on: sending Apple Events probe")
+        if Sleeper().probeAppleEvents() {
+            DispatchQueue.main.async {
+                showNeedPrivilegesAlert()
+            }
+        }
+    }
 
     func resetRunState() {
         aborted = false

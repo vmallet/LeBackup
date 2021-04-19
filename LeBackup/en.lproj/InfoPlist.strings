@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  LeBackup
+
+  Created by Vincent Mallet on 4/19/21.
+  
+*/
+NSAppleEventsUsageDescription = "Required to put the Mac to sleep";
