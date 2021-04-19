@@ -38,6 +38,8 @@
 /* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "VMs Parallels détectées";
 
+"QUACK_!" = "Coin !";
+
 /* Main run button */
 "RUN_!" = "Sauvegarde !";
 

@@ -18,6 +18,7 @@
 		614FA68F262B81F400A68B04 /* Sleeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA688262B81F300A68B04 /* Sleeper.swift */; };
 		614FA691262B81F400A68B04 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68A262B81F400A68B04 /* LogView.swift */; };
 		614FA692262B81F400A68B04 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68B262B81F400A68B04 /* Prefs.swift */; };
+		614FA69E262D473700A68B04 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 614FA69D262D473700A68B04 /* quack.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		614FA688262B81F300A68B04 /* Sleeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sleeper.swift; sourceTree = "<group>"; };
 		614FA68A262B81F400A68B04 /* LogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		614FA68B262B81F400A68B04 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		614FA69D262D473700A68B04 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quack.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		614FA668262AA56A00A68B04 /* LeBackup */ = {
 			isa = PBXGroup;
 			children = (
+				614FA69C262D46F400A68B04 /* Resources */,
 				614FA685262B81F300A68B04 /* LogStore.swift */,
 				614FA68A262B81F400A68B04 /* LogView.swift */,
 				614FA68B262B81F400A68B04 /* Prefs.swift */,
@@ -91,6 +94,14 @@
 				614FA670262AA56A00A68B04 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		614FA69C262D46F400A68B04 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				614FA69D262D473700A68B04 /* quack.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614FA69E262D473700A68B04 /* quack.mp3 in Resources */,
 				614FA671262AA56B00A68B04 /* Preview Assets.xcassets in Resources */,
 				614FA67F262B7FB900A68B04 /* Localizable.strings in Resources */,
 				614FA66E262AA56A00A68B04 /* Assets.xcassets in Resources */,

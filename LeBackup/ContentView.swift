@@ -40,6 +40,8 @@ struct ContentView: View {
 
     private static let osQueue =  DispatchQueue(label: "com.vmallet.MacExp2.osQueue")
 
+    let quack = NSSound(contentsOf: Bundle.main.url(forResource: "quack", withExtension: "mp3")!, byReference: false)
+
     @EnvironmentObject var blahx: LogStore
     @State var runner: Runner
     @Binding var showExtras: Bool
@@ -129,6 +131,9 @@ struct ContentView: View {
                     Spacer()
                     Divider()
                     VStack {
+                        Button(NSLocalizedString("QUACK_!", comment: "")) {
+                            quack?.play()
+                        }
                         Spacer()
                         Toggle(NSLocalizedString("SLEEP_WHEN_DONE", comment: "Main UI checkbox label"), isOn: $autoSleep)
                         Spacer()

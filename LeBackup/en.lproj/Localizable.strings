@@ -31,6 +31,8 @@
 /* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "Parallels VMs detected";
 
+"QUACK_!" = "Quack!";
+
 /* Main run button */
 "RUN_!" = "Run!";
 
