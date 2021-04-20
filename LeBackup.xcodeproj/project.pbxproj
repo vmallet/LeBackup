@@ -118,10 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 614FA676262AA56B00A68B04 /* Build configuration list for PBXNativeTarget "LeBackup" */;
 			buildPhases = (
+				614FA6A0262E21AF00A68B04 /* Update Localization files */,
 				614FA662262AA56A00A68B04 /* Sources */,
 				614FA663262AA56A00A68B04 /* Frameworks */,
 				614FA664262AA56A00A68B04 /* Resources */,
-				614FA6A0262E21AF00A68B04 /* ShellScript */,
+				614FA6B9262E994C00A68B04 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -181,7 +182,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		614FA6A0262E21AF00A68B04 /* ShellScript */ = {
+		614FA6A0262E21AF00A68B04 /* Update Localization files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,6 +193,7 @@
 				"$(SRCROOT)/*.swift",
 				"$(SRCROOT)/*.strings",
 			);
+			name = "Update Localization files";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -199,6 +201,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "BARTY=\"bartycrouch\"\nif which $BARTY > /dev/null; then\n    $BARTY update -x\n    $BARTY lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
+		614FA6B9262E994C00A68B04 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\ngit=$(sh /etc/profile; which git)\nnumber_of_commits=$(\"$git\" rev-list HEAD --count)\n\ntarget_plist=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\ndsym_plist=\"$DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME/Contents/Info.plist\"\n\nfor plist in \"$target_plist\" \"$dsym_plist\"; do\n  if [ -f \"$plist\" ]; then\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $number_of_commits\" \"$plist\"\n  fi\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
