@@ -7,11 +7,28 @@
 
 import Foundation
 
+fileprivate let noDateValue = -1.2345
+
+extension Date: RawRepresentable {
+    public var rawValue: String {
+        return String(self.timeIntervalSinceReferenceDate)
+    }
+
+    public init?(rawValue: String) {
+        let double = Double(rawValue) ?? noDateValue
+        if double == noDateValue {
+            return nil
+        }
+        self = Date(timeIntervalSinceReferenceDate: double)
+    }
+}
+
 class Prefs {
     enum Keys {
         static let src = "rsync.src"
         static let dest = "rsync.dest"
         static let autoSleep = "auto.sleep"
+        static let lastSuccessful = "last.successful"
     }
 
     static let shared = Prefs()
@@ -31,7 +48,8 @@ class Prefs {
         defaults.register(defaults: [
             Keys.src: Prefs.defaultRsyncSrc,
             Keys.dest: Prefs.defaultRsyncDest,
-            Keys.autoSleep: false
+            Keys.autoSleep: false,
+            Keys.lastSuccessful: "\(noDateValue)"
             ])
 
 //        cancellable = NotificationCenter.default
@@ -53,6 +71,20 @@ class Prefs {
     var autoSleep: Bool {
         set { defaults.set(newValue, forKey: Keys.autoSleep) }
         get { defaults.bool(forKey: Keys.autoSleep) }
+    }
+
+    var lastSuccessful: Date? {
+        set {
+            if newValue == nil || newValue?.timeIntervalSinceReferenceDate == noDateValue {
+                defaults.removeObject(forKey: Keys.lastSuccessful)
+            } else {
+                defaults.set(newValue!.rawValue, forKey: Keys.lastSuccessful)
+            }
+        }
+        get {
+            guard let rawValue = defaults.string(forKey: Keys.lastSuccessful) else { return nil }
+            return Date.init(rawValue: rawValue)
+        }
     }
 
     class func getDocumentsDirectory() -> URL {

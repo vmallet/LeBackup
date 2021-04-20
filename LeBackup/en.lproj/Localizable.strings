@@ -29,7 +29,13 @@
 "DRY_RUN_SKIPPING_RSYNC" = "Dry run; skipping rsync";
 
 /* No comment provided by engineer. */
+"LAST_SUCCESSFUL_RUN" = "Last sucessful run:";
+
+/* No comment provided by engineer. */
 "MISSING_SYSTEM_EVENTS_PRIVILEGES" = "Missing System Events Privileges";
+
+/* No comment provided by engineer. */
+"NEVER" = "Never";
 
 /* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "Parallels VMs detected";

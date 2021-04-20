@@ -29,7 +29,13 @@
 "DRY_RUN_SKIPPING_RSYNC" = "On tourne à blanc : on ne fait pas la vraie sauvegarde";
 
 /* No comment provided by engineer. */
+"LAST_SUCCESSFUL_RUN" = "Dernière sauvegarde réussie :";
+
+/* No comment provided by engineer. */
 "MISSING_SYSTEM_EVENTS_PRIVILEGES" = "Droits manquants pour System Events";
+
+/* No comment provided by engineer. */
+"NEVER" = "Aucune";
 
 /* No comment provided by engineer. */
 "PARALLELS_VMS_DETECTED" = "VMs Parallels détectées";

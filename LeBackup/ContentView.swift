@@ -35,6 +35,8 @@ struct BigButtonStyle: ButtonStyle {
 }
 
 struct ContentView: View {
+    static let markerDate = Date(timeIntervalSinceReferenceDate: -1.5432)
+
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ContentView")
 
     private static let osQueue =  DispatchQueue(label: "com.vmallet.MacExp2.osQueue")
@@ -58,7 +60,7 @@ struct ContentView: View {
     @AppStorage(Prefs.Keys.src) var rsyncSrc = Prefs.defaultRsyncSrc
     @AppStorage(Prefs.Keys.dest) var rsyncDest = Prefs.defaultRsyncDest
     @AppStorage(Prefs.Keys.autoSleep) var autoSleep = false
-
+    @AppStorage(Prefs.Keys.lastSuccessful) var lastSuccessful: Date = markerDate
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -119,17 +121,32 @@ struct ContentView: View {
                                     .lineLimit(1)
                                     .padding(.bottom, 5)
                             }
-                        }
-                        HStack {
-                            Toggle(NSLocalizedString("DRY_RUN", comment: ""), isOn: $dryRun)
                             Spacer()
+                            VStack(alignment: .leading) {
+                                Spacer()
+                                Toggle(NSLocalizedString("DRY_RUN", comment: ""), isOn: $dryRun)
+                                    .padding(.bottom)
                                 Button(NSLocalizedString("SETTINGS", comment: "Settings button label")) {
                                     showSettings()
                                 }
+                            }
                         }
+                        HStack {
+                            Text(NSLocalizedString("LAST_SUCCESSFUL_RUN", comment: ""))
+                            if lastSuccessful == Self.markerDate {
+                                Text(NSLocalizedString("NEVER", comment: ""))
+                            } else {
+                                HStack {
+                                    Text(lastSuccessful, style: .date)
+                                    Text(lastSuccessful, style: .time)
+                                }
+                            }
+                            Spacer()
+                        }
+                        .foregroundColor(.secondary)
                         Spacer()
                     }
-                    .padding()
+                    .padding([.top, .leading, .trailing])
                     Spacer()
                     Divider()
                     VStack {
@@ -255,10 +272,17 @@ struct ContentView: View {
                 }
             }
 
-            Button("sendTestKey") {
-                let _ = Sleeper().probeAppleEvents()
+            HStack {
+                Button("probeEvents") {
+                    let _ = Sleeper().probeAppleEvents()
+                }
+                Button("setDate") {
+                    Prefs.shared.lastSuccessful = Date()
+                }
+                Button("clrDate") {
+                    Prefs.shared.lastSuccessful = nil
+                }
             }
-
             Spacer()
         }
     }
@@ -532,6 +556,9 @@ struct ContentView: View {
                     DispatchQueue.main.async {
                         let msg = String(format: NSLocalizedString("TERMINATION_STATUS %d", comment: ""), status)
                         blahx.append(msg, kind: .meta)
+                        if status == 0 {
+                            Prefs.shared.lastSuccessful = Date()
+                        }
                         withAnimation {
                             showRunning = false
                         }
