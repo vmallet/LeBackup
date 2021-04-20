@@ -256,7 +256,7 @@ struct ContentView: View {
             }
 
             Button("sendTestKey") {
-                Sleeper().probeAppleEvents()
+                let _ = Sleeper().probeAppleEvents()
             }
 
             Spacer()

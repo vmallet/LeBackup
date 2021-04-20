@@ -6,3 +6,6 @@
   
 */
 NSAppleEventsUsageDescription = "Nécessaire pour mettre le Mac en veille";
+
+NSHumanReadableCopyright = "Copyright © 2021, Vincent Mallet.
+Tous droits réservés.";
