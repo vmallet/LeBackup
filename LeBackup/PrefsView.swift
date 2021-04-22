@@ -11,33 +11,57 @@ struct PrefsView: View {
     @AppStorage(Prefs.Keys.src) var rsyncSrc = Prefs.defaultRsyncSrc
     @AppStorage(Prefs.Keys.dest) var rsyncDest = Prefs.defaultRsyncDest
     @AppStorage(Prefs.Keys.autoSleep) var autoSleep = false
+    @AppStorage(Prefs.Keys.detailsShowing) var areDetailsShowing = false
 
     let chooseLabel = NSLocalizedString("CHOOSE_...", comment: "")
 
+    private let columns = [GridItem(.fixed(150), alignment: .trailing), GridItem(.fixed(500), alignment: .leading), GridItem(.fixed(100))]
+
+    let emptyCell = AnyView(Color(NSColor.clear))
+
+    func buildGrid(_ index: Int) -> AnyView {
+        switch (index) {
+        case 0:
+            return AnyView(Text(NSLocalizedString("SOURCE_:", comment: "")))
+        case 1:
+            return AnyView(TextField(NSLocalizedString("SOURCE_DIRECTORY", comment: ""), text: $rsyncSrc))
+        case 2:
+            return AnyView(
+                Button(chooseLabel) {
+                    if let newDir = dirPicker(rsyncSrc) {
+                        rsyncSrc = newDir
+                    }
+                }
+            )
+        case 3:
+            return AnyView(Text(NSLocalizedString("DESTINATION_:", comment: "")))
+        case 4:
+            return AnyView(TextField(NSLocalizedString("TARGET_DIRECTORY", comment: ""), text: $rsyncDest))
+        case 5:
+            return AnyView(
+                Button(chooseLabel) {
+                    if let newDir = dirPicker(rsyncDest) {
+                        rsyncDest = newDir
+                    }
+                }
+            )
+        case 7:
+            return AnyView(Toggle(NSLocalizedString("AUTOMATICALLY_SLEEP_AFTER_BACKUP", comment: ""), isOn: $autoSleep))
+        case 10:
+            return AnyView(Toggle(NSLocalizedString("SHOW_DETAILS_PANE", comment: ""),
+                                  isOn: $areDetailsShowing))
+
+        default:
+            return emptyCell
+        }
+    }
+
     var body: some View {
         Form {
-//            Toggle("Perform some boolean Setting", isOn: $kSetting)
-//                .help(kSetting ? "Undo that boolean Setting" : "Perform that boolean Setting")
-            Section(header: Text("Rsync")) {
-                HStack {
-                    Text(NSLocalizedString("SOURCE_:", comment: ""))
-                    TextField(NSLocalizedString("SOURCE_DIRECTORY", comment: ""), text: $rsyncSrc)
-                    Button(chooseLabel) {
-                        if let newDir = dirPicker(rsyncSrc) {
-                            rsyncSrc = newDir
-                        }
-                    }
+            LazyVGrid(columns: columns) {
+                ForEach(0..<15) { index in
+                    buildGrid(index)
                 }
-                HStack {
-                    Text(NSLocalizedString("DESTINATION_:", comment: ""))
-                    TextField(NSLocalizedString("TARGET_DIRECTORY", comment: ""), text: $rsyncDest)
-                    Button(chooseLabel) {
-                        if let newDir = dirPicker(rsyncDest) {
-                            rsyncDest = newDir
-                        }
-                    }
-                }
-                Toggle(NSLocalizedString("AUTOMATICALLY_SLEEP_AFTER_BACKUP", comment: ""), isOn: $autoSleep)
             }
         }
         .padding()

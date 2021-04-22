@@ -24,7 +24,7 @@ struct DetailsDividerView: View {
                     .frame(width: 20)
             }
             Button {
-                resizeMainWindow()
+                toggleDetails()
             } label: {
                 Label("Details", systemImage: areDetailsShowing ? "chevron.down" : "chevron.forward")
             }
@@ -34,6 +34,9 @@ struct DetailsDividerView: View {
             }
         }
         .background(HostingWindowFinder(callback: receiveWindow))
+        .onChange(of: areDetailsShowing) { newValue in
+            resizeMainWindow(newValue)
+        }
     }
 
     func receiveWindow(_ window: NSWindow?) {
@@ -48,12 +51,19 @@ struct DetailsDividerView: View {
     }
 
 
-    func resizeMainWindow() {
+    func toggleDetails() {
+        DispatchQueue.main.async {
+            withAnimation {
+                areDetailsShowing.toggle()
+            }
+        }
+    }
+
+    func resizeMainWindow(_ willShow: Bool) {
         guard let w = window else {
             logger.warning("resizeMainWindow: no window to work with")
             return
         }
-        let willShow = !areDetailsShowing // prepare toggling of areDetailsShowing
 
         // Compute delta of window height to get to new desired height
         // (collapsed or at least with an extra detailsHeight)
@@ -80,7 +90,6 @@ struct DetailsDividerView: View {
         logger.info("Resizing main window with delta=\(delta), new frame=\(frameStr)")
 
         withAnimation {
-            areDetailsShowing = willShow
             w.setFrame(frame, display: true, animate: true)
         }
     }

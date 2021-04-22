@@ -65,6 +65,9 @@
 "SETTINGS" = "Réglages...";
 
 /* No comment provided by engineer. */
+"SHOW_DETAILS_PANE" = "Montrer les détails d'exécution";
+
+/* No comment provided by engineer. */
 "SHUT_THEM_DOWN_TRY_AGAIN" = "Fermez-les et réessayez !";
 
 /* No comment provided by engineer. */
