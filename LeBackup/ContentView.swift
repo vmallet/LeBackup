@@ -11,6 +11,8 @@
 //TODO:   - auto detect and show some red, auto detect closure?
 //TODO: make log area selectable / copyable?
 //TODO: Alert "Are you sure" when closing window w/ running rsync
+//TODO: Hide/Show details: add View menu option to control visibility
+//TODO: Hide/Show details: decide on whether to hide LogView too (see experiment)
 
 import os
 import Cocoa
@@ -27,6 +29,12 @@ struct ContentView: View {
     private static let osQueue =  DispatchQueue(label: "com.vmallet.MacExp2.osQueue")
 
     let quack = NSSound(contentsOf: Bundle.main.url(forResource: "quack", withExtension: "mp3")!, byReference: false)
+
+    // Minimum window height
+    private let winMinHeight = CGFloat(180)
+
+    // Height to add to the window when showing Details
+    private let detailsHeight = CGFloat(200)
 
     @EnvironmentObject var blahx: LogStore
     @State var runner: Runner
@@ -60,6 +68,7 @@ struct ContentView: View {
             }
             .frame(minWidth: 600.0, minHeight: 250)
         }
+        .frame(minWidth: 600, minHeight: winMinHeight)
         .onChange(of: autoSleep) { _ in
             maybeCheckAppleEvents()
         }
@@ -68,7 +77,7 @@ struct ContentView: View {
     var mainBody: some View {
         VStack {
             controlBody
-            Divider()
+            DetailsDividerView(detailsHeight: detailsHeight)
             LogView()
         }
     }

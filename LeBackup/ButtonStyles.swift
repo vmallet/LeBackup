@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// Oversized button style
+/// Oversized button style
 struct BigButtonStyle: ButtonStyle {
     let color: Color
 
@@ -20,5 +20,15 @@ struct BigButtonStyle: ButtonStyle {
             .background(configuration.isPressed ? Color.primary : color)
             .cornerRadius(6.0)
             .padding(10)
+    }
+}
+
+/// A Button style to have a button look like a link
+struct LinkButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(configuration.isPressed ? .primary : .accentColor)
+            .background(Color(NSColor.clear))
     }
 }

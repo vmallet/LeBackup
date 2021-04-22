@@ -29,6 +29,7 @@ class Prefs {
         static let dest = "rsync.dest"
         static let autoSleep = "auto.sleep"
         static let lastSuccessful = "last.successful"
+        static let detailsShowing = "details.showing"
     }
 
     static let shared = Prefs()
@@ -49,7 +50,8 @@ class Prefs {
             Keys.src: Prefs.defaultRsyncSrc,
             Keys.dest: Prefs.defaultRsyncDest,
             Keys.autoSleep: false,
-            Keys.lastSuccessful: "\(noDateValue)"
+            Keys.lastSuccessful: "\(noDateValue)",
+            Keys.detailsShowing: false
             ])
 
 //        cancellable = NotificationCenter.default
@@ -85,6 +87,11 @@ class Prefs {
             guard let rawValue = defaults.string(forKey: Keys.lastSuccessful) else { return nil }
             return Date.init(rawValue: rawValue)
         }
+    }
+
+    var areDetailsShowing: Bool {
+        set { defaults.set(newValue, forKey: Keys.detailsShowing) }
+        get { defaults.bool(forKey: Keys.detailsShowing) }
     }
 
     class func getDocumentsDirectory() -> URL {

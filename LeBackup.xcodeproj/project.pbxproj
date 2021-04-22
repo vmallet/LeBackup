@@ -22,6 +22,8 @@
 		614FA6A6262E240700A68B04 /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6A5262E240700A68B04 /* BartyCrouch.swift */; };
 		614FA6AC262E44CB00A68B04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 614FA6AE262E44CB00A68B04 /* InfoPlist.strings */; };
 		614FA6C62631EB3A00A68B04 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */; };
+		614FA6CA2631ED4F00A68B04 /* DetailsDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */; };
+		614FA6CE2631F04C00A68B04 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		614FA6AD262E44CB00A68B04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		614FA6B0262E44EB00A68B04 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDividerView.swift; sourceTree = "<group>"; };
+		614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,9 @@
 			children = (
 				614FA6A5262E240700A68B04 /* BartyCrouch.swift */,
 				614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */,
+				614FA66B262AA56A00A68B04 /* ContentView.swift */,
+				614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */,
+				614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */,
 				614FA69C262D46F400A68B04 /* Resources */,
 				614FA685262B81F300A68B04 /* LogStore.swift */,
 				614FA68A262B81F400A68B04 /* LogView.swift */,
@@ -88,7 +95,6 @@
 				614FA688262B81F300A68B04 /* Sleeper.swift */,
 				614FA669262AA56A00A68B04 /* LeBackupApp.swift */,
 				614FA681262B7FB900A68B04 /* Localizable.strings */,
-				614FA66B262AA56A00A68B04 /* ContentView.swift */,
 				614FA66D262AA56A00A68B04 /* Assets.xcassets */,
 				614FA672262AA56B00A68B04 /* Info.plist */,
 				614FA673262AA56B00A68B04 /* LeBackup.entitlements */,
@@ -230,7 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614FA6CE2631F04C00A68B04 /* HostingWindowFinder.swift in Sources */,
 				614FA692262B81F400A68B04 /* Prefs.swift in Sources */,
+				614FA6CA2631ED4F00A68B04 /* DetailsDividerView.swift in Sources */,
 				614FA68E262B81F400A68B04 /* PrefsView.swift in Sources */,
 				614FA68C262B81F400A68B04 /* LogStore.swift in Sources */,
 				614FA6C62631EB3A00A68B04 /* ButtonStyles.swift in Sources */,
