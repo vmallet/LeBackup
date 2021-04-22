@@ -19,21 +19,6 @@ import SwiftUI
 
 let keepThingsHidden = false
 
-struct BigButtonStyle: ButtonStyle {
-    let color: Color
-
-    init(_ color: Color) {
-        self.color = color
-    }
-
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .background(configuration.isPressed ? Color.primary : color)
-            .cornerRadius(6.0)
-            .padding(10)
-    }
-}
-
 struct ContentView: View {
     static let markerDate = Date(timeIntervalSinceReferenceDate: -1.5432)
 
