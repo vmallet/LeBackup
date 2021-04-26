@@ -15,7 +15,7 @@
 		614FA68C262B81F400A68B04 /* LogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA685262B81F300A68B04 /* LogStore.swift */; };
 		614FA68D262B81F400A68B04 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA686262B81F300A68B04 /* Runner.swift */; };
 		614FA68E262B81F400A68B04 /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA687262B81F300A68B04 /* PrefsView.swift */; };
-		614FA68F262B81F400A68B04 /* Sleeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA688262B81F300A68B04 /* Sleeper.swift */; };
+		614FA68F262B81F400A68B04 /* Scripter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA688262B81F300A68B04 /* Scripter.swift */; };
 		614FA691262B81F400A68B04 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68A262B81F400A68B04 /* LogView.swift */; };
 		614FA692262B81F400A68B04 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA68B262B81F400A68B04 /* Prefs.swift */; };
 		614FA69E262D473700A68B04 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 614FA69D262D473700A68B04 /* quack.mp3 */; };
@@ -39,7 +39,7 @@
 		614FA685262B81F300A68B04 /* LogStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogStore.swift; sourceTree = "<group>"; };
 		614FA686262B81F300A68B04 /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		614FA687262B81F300A68B04 /* PrefsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsView.swift; sourceTree = "<group>"; };
-		614FA688262B81F300A68B04 /* Sleeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sleeper.swift; sourceTree = "<group>"; };
+		614FA688262B81F300A68B04 /* Scripter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripter.swift; sourceTree = "<group>"; };
 		614FA68A262B81F400A68B04 /* LogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		614FA68B262B81F400A68B04 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		614FA69D262D473700A68B04 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quack.mp3; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				614FA68B262B81F400A68B04 /* Prefs.swift */,
 				614FA687262B81F300A68B04 /* PrefsView.swift */,
 				614FA686262B81F300A68B04 /* Runner.swift */,
-				614FA688262B81F300A68B04 /* Sleeper.swift */,
+				614FA688262B81F300A68B04 /* Scripter.swift */,
 				614FA669262AA56A00A68B04 /* LeBackupApp.swift */,
 				614FA681262B7FB900A68B04 /* Localizable.strings */,
 				614FA66D262AA56A00A68B04 /* Assets.xcassets */,
@@ -245,7 +245,7 @@
 				614FA68D262B81F400A68B04 /* Runner.swift in Sources */,
 				614FA66C262AA56A00A68B04 /* ContentView.swift in Sources */,
 				614FA6A6262E240700A68B04 /* BartyCrouch.swift in Sources */,
-				614FA68F262B81F400A68B04 /* Sleeper.swift in Sources */,
+				614FA68F262B81F400A68B04 /* Scripter.swift in Sources */,
 				614FA691262B81F400A68B04 /* LogView.swift in Sources */,
 				614FA66A262AA56A00A68B04 /* LeBackupApp.swift in Sources */,
 			);

@@ -253,7 +253,7 @@ struct ContentView: View {
             bigButton("Fais dodo") {
                 logger.log("Sleep button pressed")
                 print("Ha Script!")
-                Sleeper().sleepMac(after: 1.0)
+                Scripter().sleepMac(after: 1.0)
             }
 
             bigButton("Alert") {
@@ -268,7 +268,7 @@ struct ContentView: View {
 
             HStack {
                 Button("probeEvents") {
-                    let _ = Sleeper().probeAppleEvents()
+                    let _ = Scripter().probeAppleEvents()
                 }
                 Button("setDate") {
                     Prefs.shared.lastSuccessful = Date()
@@ -330,7 +330,7 @@ struct ContentView: View {
         guard autoSleep else { return }
 
         logger.info("AutoSleep is on: sending Apple Events probe")
-        if Sleeper().probeAppleEvents() {
+        if Scripter().probeAppleEvents() {
             DispatchQueue.main.async {
                 showNeedPrivilegesAlert()
             }
@@ -558,7 +558,7 @@ struct ContentView: View {
                         }
                         if autoSleep {
                             blahx.append(NSLocalizedString("SLEEP_REQUESTED_SLEEPING", comment: ""), kind: .header)
-                            Sleeper().sleepMac(after: 2.0)
+                            Scripter().sleepMac(after: 2.0)
                         }
                     }})
     }

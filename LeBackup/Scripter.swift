@@ -1,5 +1,5 @@
 //
-//  Sleeper.swift
+//  Scripter.swift
 //  LeBackup
 //
 //  Created by Vincent Mallet on 4/12/21.
@@ -8,7 +8,7 @@
 import Foundation
 import os
 
-struct Sleeper {
+struct Scripter {
     private let noSystemEventPrivilegesErrorNumber = -1743
 
     enum Error {
