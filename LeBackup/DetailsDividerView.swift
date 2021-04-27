@@ -17,6 +17,8 @@ struct DetailsDividerView: View {
 
     @State var window: NSWindow?
 
+    @State var firstShow = true
+
     var body: some View {
         HStack {
             VStack {
@@ -48,6 +50,16 @@ struct DetailsDividerView: View {
         self.window = win
 
         logger.info("Received window, minSize=\(win.minSize.width)x\(win.minSize.height)")
+
+        // The first time the window is shown, shrink it to its
+        // min default size in case the left-over remembered size
+        // is too tall
+        if firstShow {
+            firstShow = false
+            if !areDetailsShowing {
+                resizeMainWindow(false)
+            }
+        }
     }
 
 
