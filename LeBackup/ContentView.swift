@@ -175,7 +175,7 @@ struct ContentView: View {
                             tryToRunRsync()
                         }
                     }
-                    .padding()
+                    .padding([.leading, .top, .trailing])
                     .frame(width: 280)
                 }
                 .frame(height: 150)
