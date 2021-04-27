@@ -83,26 +83,21 @@
 		614FA668262AA56A00A68B04 /* LeBackup */ = {
 			isa = PBXGroup;
 			children = (
+				614FA71C26388C2900A68B04 /* Views */,
 				614FA6A5262E240700A68B04 /* BartyCrouch.swift */,
 				614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */,
-				614FA66B262AA56A00A68B04 /* ContentView.swift */,
-				614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */,
-				614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */,
-				614FA71426378B0500A68B04 /* InlineActionPicker.swift */,
-				614FA69C262D46F400A68B04 /* Resources */,
+				614FA669262AA56A00A68B04 /* LeBackupApp.swift */,
 				614FA685262B81F300A68B04 /* LogStore.swift */,
-				614FA68A262B81F400A68B04 /* LogView.swift */,
 				614FA68B262B81F400A68B04 /* Prefs.swift */,
-				614FA687262B81F300A68B04 /* PrefsView.swift */,
 				614FA686262B81F300A68B04 /* Runner.swift */,
 				614FA688262B81F300A68B04 /* Scripter.swift */,
-				614FA669262AA56A00A68B04 /* LeBackupApp.swift */,
-				614FA681262B7FB900A68B04 /* Localizable.strings */,
 				614FA66D262AA56A00A68B04 /* Assets.xcassets */,
 				614FA672262AA56B00A68B04 /* Info.plist */,
-				614FA673262AA56B00A68B04 /* LeBackup.entitlements */,
 				614FA6AE262E44CB00A68B04 /* InfoPlist.strings */,
+				614FA681262B7FB900A68B04 /* Localizable.strings */,
+				614FA673262AA56B00A68B04 /* LeBackup.entitlements */,
 				614FA66F262AA56A00A68B04 /* Preview Content */,
+				614FA69C262D46F400A68B04 /* Resources */,
 			);
 			path = LeBackup;
 			sourceTree = "<group>";
@@ -121,6 +116,19 @@
 				614FA69D262D473700A68B04 /* quack.mp3 */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		614FA71C26388C2900A68B04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				614FA66B262AA56A00A68B04 /* ContentView.swift */,
+				614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */,
+				614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */,
+				614FA71426378B0500A68B04 /* InlineActionPicker.swift */,
+				614FA68A262B81F400A68B04 /* LogView.swift */,
+				614FA687262B81F300A68B04 /* PrefsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
