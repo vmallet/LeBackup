@@ -71,6 +71,15 @@
 "SHUT_THEM_DOWN_TRY_AGAIN" = "Fermez-les et réessayez !";
 
 /* No comment provided by engineer. */
+"SHUTDOWN" = "Arrêt";
+
+/* No comment provided by engineer. */
+"SHUTDOWN_REQUESTED_SHUTTING_DOWN" = "Arrêt demandé : on éteint le Mac...";
+
+/* No comment provided by engineer. */
+"SLEEP" = "Mise en veille";
+
+/* No comment provided by engineer. */
 "SLEEP_REQUESTED_SLEEPING" = "Veille demandée : on va faire dormir le Mac...";
 
 /* Main UI checkbox label */
@@ -102,3 +111,9 @@
 
 /* No comment provided by engineer. */
 "TRY_AGAIN" = "Réessaie";
+
+/* No comment provided by engineer. */
+"WHEN_A_BACKUP_IS_COMPLETE_AUTOMATICALLY" = "Action automatique à prendre en fin de sauvegarde :";
+
+/* No comment provided by engineer. */
+"WHEN_DONE_:" = "En fin :";

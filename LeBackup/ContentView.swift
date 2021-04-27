@@ -50,9 +50,19 @@ struct ContentView: View {
     @State var currentFile: String?
     @State var currentFileProgress = 0.0
 
+    // state var for now to prevent it from being released too early
+    @State var scripter = Scripter()
+
+    @State var postBackupAction = Prefs.shared.postBackupAction
+
     @AppStorage(Prefs.Keys.src) var rsyncSrc = Prefs.defaultRsyncSrc
     @AppStorage(Prefs.Keys.dest) var rsyncDest = Prefs.defaultRsyncDest
-    @AppStorage(Prefs.Keys.autoSleep) var autoSleep = false
+    @AppStorage(Prefs.Keys.autoActionEnabled) var autoActionEnabled = false
+
+    // postBackupHack is a hack to keep track of external changes to postBackupAction.
+    // The real value is tracked / modified in postBackupAction with the right type of
+    // AutoAction. Haven't figured out how to use @AppStorage with a custom type yet.
+    @AppStorage(Prefs.Keys.postBackupAction) var postBackupHack = ""
     @AppStorage(Prefs.Keys.lastSuccessful) var lastSuccessful: Date = markerDate
     var body: some View {
         GeometryReader { geometry in
@@ -69,8 +79,19 @@ struct ContentView: View {
             .frame(minWidth: 600.0, minHeight: 250)
         }
         .frame(minWidth: 600, minHeight: winMinHeight)
-        .onChange(of: autoSleep) { _ in
-            maybeCheckAppleEvents()
+        .onChange(of: postBackupHack) { _ in
+            postBackupAction = Prefs.shared.postBackupAction
+            DispatchQueue.main.async {
+                maybeCheckAppleEvents()
+            }
+        }
+        .onChange(of: autoActionEnabled) { _ in
+            DispatchQueue.main.async {
+                maybeCheckAppleEvents()
+            }
+        }
+        .onChange(of: postBackupAction) { newValue in
+            Prefs.shared.postBackupAction = newValue
         }
     }
 
@@ -148,7 +169,7 @@ struct ContentView: View {
                             quack?.play()
                         }
                         Spacer()
-                        Toggle(NSLocalizedString("SLEEP_WHEN_DONE", comment: "Main UI checkbox label"), isOn: $autoSleep)
+                        InlineActionPicker(isEnabled: $autoActionEnabled.animation(), action: $postBackupAction)
                         Spacer()
                         bigButton(NSLocalizedString("RUN_!", comment: "Main run button")) {
                             tryToRunRsync()
@@ -215,7 +236,7 @@ struct ContentView: View {
 
             VStack {
                 Spacer()
-                Toggle(NSLocalizedString("SLEEP_WHEN_DONE", comment: ""), isOn: $autoSleep)
+                InlineActionPicker(isEnabled: $autoActionEnabled.animation(), action: $postBackupAction)
                 Spacer()
                 bigButton(NSLocalizedString("ABORT", comment: ""), color: .red) {
                     runner.abortRunningProcess()
@@ -327,10 +348,10 @@ struct ContentView: View {
     }
 
     func maybeCheckAppleEvents() {
-        guard autoSleep else { return }
+        guard autoActionEnabled else { return }
 
-        logger.info("AutoSleep is on: sending Apple Events probe")
-        if Scripter().probeAppleEvents() {
+        logger.info("AutoAction is enabled (\(postBackupAction.rawValue)): sending Apple Events probe")
+        if scripter.probeAppleEvents() {
             DispatchQueue.main.async {
                 showNeedPrivilegesAlert()
             }
@@ -556,9 +577,15 @@ struct ContentView: View {
                         withAnimation {
                             showRunning = false
                         }
-                        if autoSleep {
-                            blahx.append(NSLocalizedString("SLEEP_REQUESTED_SLEEPING", comment: ""), kind: .header)
-                            Scripter().sleepMac(after: 2.0)
+                        if autoActionEnabled {
+                            switch (postBackupAction) {
+                            case .sleep:
+                                blahx.append(NSLocalizedString("SLEEP_REQUESTED_SLEEPING", comment: ""), kind: .header)
+                                scripter.sleepMac(after: 2.0)
+                            case .shutdown:
+                                blahx.append(NSLocalizedString("SHUTDOWN_REQUESTED_SHUTTING_DOWN", comment: ""), kind: .header)
+                                scripter.shutdownMac(after: 2.0)
+                            }
                         }
                     }})
     }

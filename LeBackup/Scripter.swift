@@ -28,10 +28,20 @@ struct Scripter {
         }
     }
 
+    func shutdownMac(after delay: Double = 0.0) {
+        let script = "tell application \"System Events\" to shut down"
+        print("Eventually the script is: \(script)")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            runScript(script)
+        }
+    }
+
     func runScript(_ script: String) -> Error? {
+        logger.info("Attempting to run script: \(script)")
         let appleScript = NSAppleScript(source: script)
         guard appleScript != nil else {
-            self.logger.log("Failed to even get the script")
+            logger.warning("Failed to even get the script")
             return .noAppleScript
         }
         var error: NSDictionary?

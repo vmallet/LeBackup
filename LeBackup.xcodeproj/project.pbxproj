@@ -24,6 +24,7 @@
 		614FA6C62631EB3A00A68B04 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */; };
 		614FA6CA2631ED4F00A68B04 /* DetailsDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */; };
 		614FA6CE2631F04C00A68B04 /* HostingWindowFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */; };
+		614FA71526378B0500A68B04 /* InlineActionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614FA71426378B0500A68B04 /* InlineActionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		614FA6C52631EB3A00A68B04 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDividerView.swift; sourceTree = "<group>"; };
 		614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingWindowFinder.swift; sourceTree = "<group>"; };
+		614FA71426378B0500A68B04 /* InlineActionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineActionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				614FA66B262AA56A00A68B04 /* ContentView.swift */,
 				614FA6CD2631F04C00A68B04 /* HostingWindowFinder.swift */,
 				614FA6C92631ED4F00A68B04 /* DetailsDividerView.swift */,
+				614FA71426378B0500A68B04 /* InlineActionPicker.swift */,
 				614FA69C262D46F400A68B04 /* Resources */,
 				614FA685262B81F300A68B04 /* LogStore.swift */,
 				614FA68A262B81F400A68B04 /* LogView.swift */,
@@ -240,6 +243,7 @@
 				614FA692262B81F400A68B04 /* Prefs.swift in Sources */,
 				614FA6CA2631ED4F00A68B04 /* DetailsDividerView.swift in Sources */,
 				614FA68E262B81F400A68B04 /* PrefsView.swift in Sources */,
+				614FA71526378B0500A68B04 /* InlineActionPicker.swift in Sources */,
 				614FA68C262B81F400A68B04 /* LogStore.swift in Sources */,
 				614FA6C62631EB3A00A68B04 /* ButtonStyles.swift in Sources */,
 				614FA68D262B81F400A68B04 /* Runner.swift in Sources */,

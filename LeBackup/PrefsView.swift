@@ -10,7 +10,10 @@ import SwiftUI
 struct PrefsView: View {
     @AppStorage(Prefs.Keys.src) var rsyncSrc = Prefs.defaultRsyncSrc
     @AppStorage(Prefs.Keys.dest) var rsyncDest = Prefs.defaultRsyncDest
-    @AppStorage(Prefs.Keys.autoSleep) var autoSleep = false
+    @AppStorage(Prefs.Keys.autoActionEnabled) var autoActionEnabled = false
+    // see postBackupHack in ContentView
+    @AppStorage(Prefs.Keys.postBackupAction) var postBackupHack = ""
+    @State var postBackupAction = Prefs.shared.postBackupAction
     @AppStorage(Prefs.Keys.detailsShowing) var areDetailsShowing = false
 
     let chooseLabel = NSLocalizedString("CHOOSE_...", comment: "")
@@ -46,7 +49,26 @@ struct PrefsView: View {
                 }
             )
         case 7:
-            return AnyView(Toggle(NSLocalizedString("AUTOMATICALLY_SLEEP_AFTER_BACKUP", comment: ""), isOn: $autoSleep))
+            return AnyView(VStack(alignment: .leading) {
+                Toggle(NSLocalizedString("WHEN_A_BACKUP_IS_COMPLETE_AUTOMATICALLY", comment: ""), isOn: $autoActionEnabled.animation())
+                Picker("", selection: $postBackupAction) {
+                    Text(NSLocalizedString("SLEEP", comment: ""))
+                        .tag(AutoAction.sleep)
+                    Text(NSLocalizedString("SHUTDOWN", comment: ""))
+                        .tag(AutoAction.shutdown)
+                }
+                .labelsHidden()
+                .pickerStyle(RadioGroupPickerStyle())
+                .offset(x: 15)
+                .disabled(!autoActionEnabled)
+            }
+            .onChange(of: postBackupHack) { _ in
+                postBackupAction = Prefs.shared.postBackupAction
+            }
+            .onChange(of: postBackupAction) { newValue in
+                Prefs.shared.postBackupAction = newValue
+            })
+
         case 10:
             return AnyView(Toggle(NSLocalizedString("SHOW_DETAILS_PANE", comment: ""),
                                   isOn: $areDetailsShowing))

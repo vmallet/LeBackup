@@ -23,11 +23,17 @@ extension Date: RawRepresentable {
     }
 }
 
+enum AutoAction: String {
+    case sleep = "sleep"
+    case shutdown = "shutdown"
+}
+
 class Prefs {
     enum Keys {
         static let src = "rsync.src"
         static let dest = "rsync.dest"
-        static let autoSleep = "auto.sleep"
+        static let autoActionEnabled = "auto.action.enabled"
+        static let postBackupAction = "post.backup.action"
         static let lastSuccessful = "last.successful"
         static let detailsShowing = "details.showing"
     }
@@ -49,7 +55,8 @@ class Prefs {
         defaults.register(defaults: [
             Keys.src: Prefs.defaultRsyncSrc,
             Keys.dest: Prefs.defaultRsyncDest,
-            Keys.autoSleep: false,
+            Keys.autoActionEnabled: false,
+            Keys.postBackupAction: AutoAction.sleep.rawValue,
             Keys.lastSuccessful: "\(noDateValue)",
             Keys.detailsShowing: false
             ])
@@ -71,8 +78,8 @@ class Prefs {
     }
 
     var autoSleep: Bool {
-        set { defaults.set(newValue, forKey: Keys.autoSleep) }
-        get { defaults.bool(forKey: Keys.autoSleep) }
+        set { defaults.set(newValue, forKey: Keys.autoActionEnabled) }
+        get { defaults.bool(forKey: Keys.autoActionEnabled) }
     }
 
     var lastSuccessful: Date? {
@@ -92,6 +99,11 @@ class Prefs {
     var areDetailsShowing: Bool {
         set { defaults.set(newValue, forKey: Keys.detailsShowing) }
         get { defaults.bool(forKey: Keys.detailsShowing) }
+    }
+
+    var postBackupAction: AutoAction {
+        set { defaults.set(newValue.rawValue, forKey: Keys.postBackupAction) }
+        get { AutoAction(rawValue: defaults.string(forKey: Keys.postBackupAction) ?? "") ?? .sleep }
     }
 
     class func getDocumentsDirectory() -> URL {
